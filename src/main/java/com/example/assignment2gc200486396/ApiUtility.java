@@ -29,7 +29,7 @@ public class ApiUtility {
     }
 
     public static ApiResponse getDataFromAPI(String appId){
-        String url = "http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=" + appId + "&count=3&maxlength=300&format=json";
+        String url = "http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=" + appId + "&count=3&maxlength=10000&format=json";
 
         HttpClient httpClient = HttpClient.newHttpClient();
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(java.net.URI.create(url)).build();

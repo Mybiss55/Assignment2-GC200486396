@@ -20,8 +20,7 @@ public class HelloApplication extends Application{
     public static void main(String[] args) {
 
 
-        ApiResponse response = ApiUtility.getDataFromAPI("2206270");
-        System.out.println(response.getAppNews().getNewsitems().get(0).getContents());
+
         launch();
     }
 }
