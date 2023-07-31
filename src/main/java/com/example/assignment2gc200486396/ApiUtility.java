@@ -33,8 +33,6 @@ public class ApiUtility {
 
         HttpClient httpClient = HttpClient.newHttpClient();
         HttpRequest httpRequest = HttpRequest.newBuilder().uri(java.net.URI.create(url)).build();
-
-
         try{
             HttpResponse<Path> response = httpClient.send(httpRequest, HttpResponse
                     .BodyHandlers
