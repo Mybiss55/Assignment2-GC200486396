@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment2gc200486396.NewsController">
+<AnchorPane prefHeight="339.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment2gc200486396.NewsController">
    <children>
       <VBox alignment="CENTER" layoutX="24.0" layoutY="14.0">
          <children>
@@ -24,14 +23,15 @@
                   </TextField>
                </children>
             </HBox>
-            <Label fx:id="newsTitle" prefWidth="55.0" text="News Title" />
-            <TextArea fx:id="contentArea" prefHeight="244.0" prefWidth="516.0" />
+            <Label fx:id="newsTitle" alignment="CENTER" prefHeight="17.0" prefWidth="228.0" text="News Title" />
+            <TextArea fx:id="contentArea" editable="false" prefHeight="244.0" prefWidth="516.0" />
             <HBox prefHeight="0.0" prefWidth="516.0">
                <children>
-                  <Label fx:id="newsAuthor" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="100.0" style="-fx-text-overrun: trie;" text="Author" textOverrun="CLIP" />
+                  <Label fx:id="newsAuthor" contentDisplay="CENTER" prefHeight="17.0" prefWidth="397.0" text="Author" textOverrun="CLIP" />
                </children>
             </HBox>
          </children>
       </VBox>
+
    </children>
 </AnchorPane>
