@@ -7,6 +7,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.web.WebView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -43,8 +45,20 @@ public class NewsController {
 
         // Get rid of any images in the content and the <a> tags
         // TODO - Find a way to display the links rather than removing them
-//        String pattern = ".*\\.(png|jpg|gif|bmp|jpeg|PNG|JPG|GIF|BMP|JPEG) | <a[^>]*>.*?</a>"; // <[^\n<>]+>
-//        Pattern regex = Pattern.compile(pattern);
+        String pattern = "\\S+.(png|jpg|gif|bmp|jpeg|PNG|JPG|GIF|BMP|JPEG)"; // | <a[^>]*>.*?</a>
+        Pattern regex = Pattern.compile(pattern);
+
+        List<String> allMatches = new ArrayList<String>();
+        Matcher m = regex.matcher(contentText);
+        while (m.find()) {
+            allMatches.add(m.group());
+            String temp = m.group();
+            temp = "<img src=\"" + temp + "\" />";
+            contentText = contentText.replace(m.group(), "</br>" + temp + "</br>");
+        }
+
+
+
 //        contentText = regex.matcher(contentText).replaceAll(" ");
 
         // Change Author
@@ -58,6 +72,9 @@ public class NewsController {
 //        contentArea.wrapTextProperty().setValue(true);
 
         webView.getEngine().loadContent(contentText);
+        webView.fontScaleProperty().setValue(1.5);
+        webView.setZoom(0.5);
+        webView.getEngine().setUserStyleSheetLocation(getClass().getResource("/styles.css").toString());
     }
 
 }

@@ -12,6 +12,7 @@ public class HelloApplication extends Application{
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("news-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        scene.getStylesheets().add("src/main/resources/styles.css");
         stage.setTitle("Game News");
         stage.setScene(scene);
         stage.show();
