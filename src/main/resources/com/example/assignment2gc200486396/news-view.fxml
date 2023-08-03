@@ -10,22 +10,33 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane prefHeight="825.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment2gc200486396.NewsController">
+<AnchorPane prefHeight="825.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.assignment2gc200486396.NewsController">
    <children>
       <VBox alignment="TOP_CENTER" layoutY="-7.0" prefHeight="825.0" prefWidth="1176.0" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-7.0">
          <children>
-            <HBox prefHeight="22.0" prefWidth="516.0">
+            <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#showNews" prefHeight="25.0" prefWidth="83.0" text="Search" />
-                  <TextField fx:id="inputId" prefHeight="25.0" prefWidth="374.0" promptText="Input App ID">
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin>
-                  </TextField>
+                  <HBox alignment="CENTER_LEFT" prefHeight="22.0" prefWidth="700.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#showNews" prefHeight="25.0" prefWidth="83.0" text="Search" />
+                        <TextField fx:id="inputId" prefHeight="25.0" prefWidth="374.0" promptText="Input App ID">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="63.0" prefWidth="700.0">
+                     <children>
+                        <TextField fx:id="inputURL" prefHeight="25.0" prefWidth="374.0" promptText="URL" />
+                        <Button mnemonicParsing="false" onAction="#showWebsite" prefHeight="25.0" prefWidth="83.0" text="Search">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
                </children>
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
             </HBox>
             <Label fx:id="newsTitle" alignment="CENTER" prefHeight="35.0" prefWidth="1169.0" text="News Title">
                <font>

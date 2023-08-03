@@ -13,9 +13,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class NewsController {
-
     @FXML
     private WebView webView;
+
+
+    @FXML
+    private TextField inputURL;
+
     @FXML
     private TextArea contentArea;
 
@@ -28,6 +32,11 @@ public class NewsController {
     @FXML
     private Label newsTitle;
 
+    public void initialize() {
+        webView.getEngine().load("http://15.222.122.223/~Myles200486396/Assignment%203/");
+        newsAuthor.setText(" ");
+        newsTitle.setText(" ");
+    }
     @FXML
     void showNews(ActionEvent event) {
         String appId = inputId.getText();
@@ -37,14 +46,11 @@ public class NewsController {
         try {
             contentText = response.getAppNews().getNewsitems().get(0).getContents();
         }catch (Exception e){
-            contentText = "No news found for this game";
+            contentText = "No news found for this game, maybe another?";
         }
 
 
 
-
-        // Get rid of any images in the content and the <a> tags
-        // TODO - Find a way to display the links rather than removing them
         String pattern = "\\S+.(png|jpg|gif|bmp|jpeg|PNG|JPG|GIF|BMP|JPEG)"; // | <a[^>]*>.*?</a>
         Pattern regex = Pattern.compile(pattern);
 
@@ -61,13 +67,22 @@ public class NewsController {
 
 //        contentText = regex.matcher(contentText).replaceAll(" ");
 
-        // Change Author
-        String authorText = response.getAppNews().getNewsitems().get(0).getAuthor();
-        newsAuthor.setText(authorText);
+        try{
+            // Change Author
+            String authorText = response.getAppNews().getNewsitems().get(0).getAuthor();
+            newsAuthor.setText(authorText);
 
-        // Change Title
-        String titleText = response.getAppNews().getNewsitems().get(0).getTitle();
-        newsTitle.setText(titleText);
+            // Change Title
+            String titleText = response.getAppNews().getNewsitems().get(0).getTitle();
+            newsTitle.setText(titleText);
+        }
+        catch (Exception e){
+            newsAuthor.setText("Author has gone missing!");
+            newsTitle.setText("Titles eh!");
+        }
+
+
+
 //        contentArea.setText(contentText);
 //        contentArea.wrapTextProperty().setValue(true);
 
@@ -76,5 +91,16 @@ public class NewsController {
         webView.setZoom(0.5);
         webView.getEngine().setUserStyleSheetLocation(getClass().getResource("/styles.css").toString());
     }
+
+    @FXML
+    void showWebsite(ActionEvent event) {
+        String url = inputURL.getText();
+        url = url.trim();
+        webView.getEngine().load(url);
+        newsAuthor.setText(" ");
+        newsTitle.setText(" ");
+        System.out.println();
+    }
+
 
 }
