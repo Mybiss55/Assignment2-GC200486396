@@ -21,4 +21,5 @@ To use the application, simply run it and enter a Steam AppID in the top-left in
 ### Integrated Web Browser
 
 You can additionally view any URL using the right search bar.
+
 > 💡 This feature is experimental, the default view is my [JavaScript TODO List](https://example.com)!
